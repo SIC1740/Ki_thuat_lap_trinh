@@ -26,7 +26,7 @@ void implement(){
             s = pow(s,t);
         }
    
-    cout << fixed << setprecision(3) << s << endl;
+    cout << fixed << setprecision(3) << s << " " << endl;
 
 }
 int32_t main(){
