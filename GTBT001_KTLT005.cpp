@@ -9,12 +9,7 @@ void implement(){
     int n ,i;
     float x , s, t ;
     unsigned long long m ;
-    do{
         cin >> n ;
-        if(n < 1){
-            cout << "Nhap lai n";
-        }
-    } while(n < 1);
         cin >> x ;
         s = 0.0;
         t = 1.0; 
@@ -26,15 +21,7 @@ void implement(){
             s += t/m;
             i ++;
         }
-    // cin >> n >> x ;
-    // for(int i = 1 ; i <= n ; ++ i){
-    //     double s = 1 ;
-    //     for(int k = 1 ; k <= i ; k ++){
-    //         s *= k ;
-    //     }
-    //     sum += pow(x,i)/s;
-    // }
-    cout << fixed << setprecision(3) << s  << endl;
+    cout << fixed << setprecision(3) << s << endl;
 
 }
 int32_t main(){
