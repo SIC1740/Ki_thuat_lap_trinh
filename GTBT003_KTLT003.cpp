@@ -9,12 +9,7 @@ void implement(){
     int n ,i;
     float x , s, t ;
     unsigned long long m ;
-    do{
-        cin >> n ;
-        if(n < 1){
-            cout << "Nhap lai n";
-        }
-    } while(n < 1);
+   cin >> n ;
         m = 1;
         i = 2;
         s = 1.0;
