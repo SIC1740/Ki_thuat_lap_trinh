@@ -1,48 +1,42 @@
-//TỔNG LŨY THỪA BẬC N
 #include <bits/stdc++.h>
+#define ll long long
+#define fi first
+#define se second
+#define f(i,a,b) for(int i=a; i<=b; ++i)
+#define fn(i,a,b) for(int i=a; i>=b; --i)
+const int MOD=1e9+7;
 using namespace std;
-#define int long long
-const int maxn = 1e7 + 7;
-const int mod = 1e9 + 7;
 
-vector<vector<vector<int>>> memo;
-
-int cnt(int m, int n, int num = 1) {
-    if (m == 0) {
-        return 1;
-    }
-    if (num > m) {
-        return 0;
-    }
-    if (memo[m][n][num] != -1) {
-        return memo[m][n][num];
-    }
-    int count = 0;
-    int poww = pow(num, n);
-    if (poww <= m) {
-        count += cnt(m - poww, n, num + 1);
-    }
-    count += cnt(m, n, num + 1);
-    return memo[m][n][num] = count;
+ll n, cs, a, m, key[100005], mx, t, gt, ans, test[100005];
+ll tinh(ll x){
+ll ans=1;
+while(x) ans*=(x%10), x/=10;
+return ans;
 }
-
-void implement() {
-    int m, n;
-    cin >> m >> n;
-    memo.assign(m + 1, vector<vector<int>>(n + 1, vector<int>(m + 1, -1)));
-    int res = cnt(m, n);
-    cout << res;
-}
-
-int32_t main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    int t;
-    cin >> t;
-    while (t--) {
-        implement();
-        cout << endl;
-    }
-    return 0;
+int main() {
+  ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+  f(i,1,1e3){
+    if(tinh(i)>mx) mx=tinh(i), gt=i;
+    key[i]=gt;
+  }
+  //f(i,1,99) cout<<i<<" "<<key[i]<<'\n';
+  cin >> t;
+  while(t--){
+    //f(p,100,1e5){
+    cin >> n;
+    if(n<1000) {cout<<tinh(key[n])<<'\n'; continue;}
+    m=n, cs=0, ans=1;
+    while(m) cs++, m/=10;
+    a=n;
+    f(i,1,cs-3) a/=10;
+    m=a;
+    f(i,1,cs-3) m=m*10+9;
+    if(m==n) m=key[a];
+    else m=key[a-1];
+    f(i,1,cs-3) m=m*10+9;
+    cout<<tinh(m)<<'\n';
+    //}
+  }
+  //f(i,100,1e5) if(test[i]!=key[i]) cout<<i<<" "<<test[i]<<" "<<key[i]<<'\n';
+return 0;
 }
